@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenses/BasicEnemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/enemy.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.8622, 32.0275 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 35.2759
+height = 7.01906
+
+[node name="BasicEnemy" type="Node2D"]
+script = ExtResource( 1 )
+enemy_speed = 100
+time_min = 1
+time_max = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource( 2 )
+disabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 39.5017, -0.487679 )
+enabled = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2( -39.014, 0 )
+enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+position = Vector2( -0.647064, -0.647072 )
+rotation = -1.571
+enabled = true
+
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+position = Vector2( -0.647064, -0.647072 )
+rotation = 1.56986
+enabled = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
