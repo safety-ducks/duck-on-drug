@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenses/BasicRamp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenses/BasicEnemy.tscn" type="PackedScene" id=2]
 
 [node name="MainScene" type="Node2D"]
 
@@ -12,3 +13,12 @@ position = Vector2( 781.155, 588.302 )
 
 [node name="BasicRamp3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 681.807, 463.629 )
+
+[node name="BasicRamp4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200.774, 400.454 )
+
+[node name="BasicEnemy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 839.596, 401.292 )
+
+[node name="BasicEnemy2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 558.302, 401.292 )
