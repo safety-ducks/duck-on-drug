@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="UI" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+margin_top = -0.857376
+margin_right = 40.0
+margin_bottom = 39.1426
+rect_scale = Vector2( 25.64, 15.08 )

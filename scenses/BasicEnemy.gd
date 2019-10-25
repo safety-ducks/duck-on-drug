@@ -24,9 +24,7 @@ func _physics_process(delta):
 		pass
 	
 	position.x += Velocity.x*delta
-	
-	if $RayCast2D3.is_colliding():
-		print(3)
+
 		
 func _on_Timer_timeout():
 	Velocity.x *= -1
