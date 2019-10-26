@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenses/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Background.jpg" type="Texture" id=2]
@@ -9,8 +9,9 @@
 [ext_resource path="res://assets/images/menu.png" type="Texture" id=7]
 [ext_resource path="res://assets/fonts/ubuntu-font-family/UbuntuMono-B.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://scenses/Button.gd" type="Script" id=9]
-[ext_resource path="res://assets/sounds/menu music.wav" type="AudioStream" id=10]
-[ext_resource path="res://scenses/MainScene2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/sounds/menu music.ogg" type="AudioStream" id=10]
+[ext_resource path="res://scenses/AudioStreamPlayer.gd" type="Script" id=11]
+[ext_resource path="res://scenses/MainScene2.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -38,8 +39,10 @@ margin_bottom = 1201.19
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 61.2764, -581.811 )
+position = Vector2( 70, -580 )
+scale = Vector2( 1.00275, 1.00032 )
 speed_value = 200
+jump_force = -500
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -65,8 +68,10 @@ pause_mode = 2
 script = ExtResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI"]
-margin_right = 1920.0
-margin_bottom = 1080.0
+margin_left = 3.23535
+margin_top = 0.323517
+margin_right = 1923.24
+margin_bottom = 1080.32
 rect_scale = Vector2( 0.710214, 0.713331 )
 size_flags_stretch_ratio = 0.0
 texture = ExtResource( 7 )
@@ -84,6 +89,7 @@ script = ExtResource( 9 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/UI"]
 stream = ExtResource( 10 )
 autoplay = true
+script = ExtResource( 11 )
 
-[node name="Level" parent="." instance=ExtResource( 11 )]
+[node name="Level" parent="." instance=ExtResource( 12 )]
 [connection signal="pressed" from="CanvasLayer/UI/TextureRect/Button" to="CanvasLayer/UI/TextureRect/Button" method="_on_Button_pressed"]
