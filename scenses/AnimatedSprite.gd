@@ -1,4 +1,4 @@
-extends Button
+extends AnimatedSprite
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -13,16 +13,12 @@ func _ready():
 #	pass
 
 
-func _on_Button_button_down():
-
-	pass # Replace with function body.
-
-
-func _on_Button_pressed():
-	get_node("/root/MainScene/CanvasLayer/HUD/Lives").text = "Lives: "+str(get_node("/root/MainScene/Player").lifes)
-	
-	get_node("/root/MainScene/CanvasLayer/UI").hide()
-	
-	get_parent().get_tree().paused = false
-
+func _on_Timer_timeout():
+	randomize()
+	var result = rand_range(0.0,1.0)
+	if result >= 0.5:
+		play("Win")
+	else:
+		play("Lose")
+	print (str(result))
 	pass # Replace with function body.

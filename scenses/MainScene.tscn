@@ -42,6 +42,7 @@ texture = ExtResource( 2 )
 position = Vector2( 70, -580 )
 scale = Vector2( 1.00275, 1.00032 )
 speed_value = 200
+jump_force = -500
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
