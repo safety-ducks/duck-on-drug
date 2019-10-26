@@ -8,6 +8,7 @@ pause_mode = 1
 script = ExtResource( 1 )
 
 [node name="Ramps" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="BasicRamp" parent="Ramps" instance=ExtResource( 2 )]
 position = Vector2( 244.92, 782.761 )
@@ -431,7 +432,7 @@ scale = Vector2( 0.19, -1 )
 
 [node name="BasicRamp29" parent="Ramps" instance=ExtResource( 2 )]
 position = Vector2( 1914.3, -55.4464 )
-rotation = 2.53518e-006
+rotation = 2.53518e-06
 scale = Vector2( 0.5, -1 )
 
 [node name="BasicRamp98" parent="Ramps" instance=ExtResource( 2 )]
