@@ -19,3 +19,8 @@ func _process(delta):
 func _on_Button_pressed():
 	get_parent().get_tree().paused = false
 	pass # Replace with function body.
+
+
+func _on_Restart_button_down():
+	get_tree().reload_current_scene()
+	pass # Replace with function body.

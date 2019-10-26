@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenses/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Background.jpg" type="Texture" id=2]
@@ -18,7 +18,8 @@
 [ext_resource path="res://scenses/Button.gd" type="Script" id=16]
 [ext_resource path="res://assets/sounds/menu music.ogg" type="AudioStream" id=17]
 [ext_resource path="res://scenses/AudioStreamPlayer.gd" type="Script" id=18]
-[ext_resource path="res://scenses/MainScene2.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenses/Restart.gd" type="Script" id=19]
+[ext_resource path="res://scenses/MainScene2.tscn" type="PackedScene" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -60,8 +61,12 @@ use_filter = true
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 100
+size = 200
 font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 64
+font_data = ExtResource( 5 )
 
 [node name="MainScene" type="Node2D"]
 pause_mode = 1
@@ -123,7 +128,6 @@ expand = true
 position = Vector2( 530.495, 448.313 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Texture"]
@@ -164,7 +168,19 @@ script = ExtResource( 18 )
 wait_time = 2.0
 one_shot = true
 
-[node name="Level" parent="." instance=ExtResource( 19 )]
+[node name="Restart" type="Button" parent="CanvasLayer/UI"]
+visible = false
+margin_left = 1134.22
+margin_top = 690.196
+margin_right = 1367.22
+margin_bottom = 769.196
+custom_fonts/font = SubResource( 6 )
+text = "Restart"
+flat = true
+script = ExtResource( 19 )
+
+[node name="Level" parent="." instance=ExtResource( 20 )]
 position = Vector2( -4.55029, 5.11914 )
 [connection signal="pressed" from="CanvasLayer/UI/Button" to="CanvasLayer/UI/Button" method="_on_Button_pressed"]
 [connection signal="timeout" from="CanvasLayer/UI/StartDelay" to="CanvasLayer/UI/Button" method="_on_StartDelay_timeout"]
+[connection signal="button_down" from="CanvasLayer/UI/Restart" to="." method="_on_Restart_button_down"]
