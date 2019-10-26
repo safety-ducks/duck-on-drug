@@ -32,6 +32,6 @@ func _physics_process(delta):
 		
 func _on_Timer_timeout():
 	flip()
-	#$Timer.stop()
+	$Timer.stop()
 	$Timer.wait_time = rand_range(2,5)
 	pass # Replace with function body.

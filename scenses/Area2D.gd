@@ -11,6 +11,7 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if body.get_name() == "Player":
 		body.get_damage()
+		$Timer.stop()
 		queue_free()
 	print("lifes left: ", body.lifes)
 	pass # Replace with function body.

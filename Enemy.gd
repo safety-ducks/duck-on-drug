@@ -35,3 +35,13 @@ func _on_Timer_timeout():
 	#$Timer.stop()
 	$Timer.wait_time = rand_range(2,5)
 	pass # Replace with function body.
+	
+
+
+func _on_Enemy_body_entered(body):
+	if body.get_name() == "Player":
+		body.get_damage()
+		$Timer.stop()
+		queue_free()
+	print("lifes left: ", body.lifes)
+	pass # Replace with function body.
