@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenses/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://scenses/BasicRamp.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenses/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenses/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenses/UI.gd" type="Script" id=6]
+[ext_resource path="res://scenses/Player.tscn" type="PackedScene" id=7]
 
 [node name="MainScene" type="Node2D"]
 pause_mode = 1
@@ -36,3 +37,6 @@ pause_mode = 2
 visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
 script = ExtResource( 6 )
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+position = Vector2( 40, 350 )
