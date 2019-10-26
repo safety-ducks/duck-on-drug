@@ -23,8 +23,9 @@ func start_game():
 
 
 func _on_Button_pressed():
-	get_node("/root/MainScene/CanvasLayer/UI/Texture/Anim").play("turn")
+	get_node("/root/MainScene/CanvasLayer/UI/Texture/Node2D/Anim").play("turn")
 	get_node("/root/MainScene/CanvasLayer/UI/StartDelay").start()
+	get_node("/root/MainScene/CanvasLayer/UI/Texture/AnimationPlayer").play('Sink')
 	hide()
 	pass # Replace with function body.
 

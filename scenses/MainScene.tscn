@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenses/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Background.jpg" type="Texture" id=2]
@@ -37,7 +37,23 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="Animation" id=3]
+resource_name = "Sink"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 300 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
 size = 100
 font_data = ExtResource( 15 )
 
@@ -87,7 +103,6 @@ pause_mode = 2
 script = ExtResource( 6 )
 
 [node name="Texture" type="TextureRect" parent="CanvasLayer/UI"]
-editor/display_folded = true
 margin_left = 3.23535
 margin_top = 0.323517
 margin_right = 1923.24
@@ -97,18 +112,23 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource( 7 )
 expand = true
 
-[node name="Anim" type="AnimatedSprite" parent="CanvasLayer/UI/Texture"]
+[node name="Node2D" type="Node2D" parent="CanvasLayer/UI/Texture"]
+
+[node name="Anim" type="AnimatedSprite" parent="CanvasLayer/UI/Texture/Node2D"]
 position = Vector2( 530.495, 448.313 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Texture"]
-margin_left = 9.53674e-07
+margin_left = 9.53674e-007
 margin_top = -0.45353
 margin_right = 1920.0
 margin_bottom = 1079.55
 texture = ExtResource( 14 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI/Texture"]
+anims/Sink = SubResource( 3 )
 
 [node name="Button" type="Button" parent="CanvasLayer/UI"]
 margin_left = 327.6
@@ -116,7 +136,7 @@ margin_top = 266.627
 margin_right = 839.602
 margin_bottom = 372.627
 rect_scale = Vector2( 0.20809, 1.01479 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 flat = true
 script = ExtResource( 16 )
 
