@@ -14,6 +14,12 @@ func _ready():
 
 
 func _on_LSD_body_entered(body):
-	if body.get_name() == "Player":
+	if body.get_name() == "Player" and visible:
+		$Sound.play()
 		body.update_trip_level(100)
-		queue_free()
+		hide()
+		
+
+
+func _on_Sound_finished():
+	queue_free()

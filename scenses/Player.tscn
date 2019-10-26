@@ -54,15 +54,19 @@ smoothing_enabled = true
 
 [node name="sound1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -7.0
 
 [node name="sound2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -7.0
 
 [node name="sound3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+volume_db = -7.0
 
 [node name="sound4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+volume_db = -7.0
 
 [node name="GravityTimer" type="Timer" parent="."]
 wait_time = 10.0

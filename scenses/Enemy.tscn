@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Enemy2@2x.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/Enemy2@3x.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/damage.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -52,6 +53,11 @@ cast_to = Vector2( 0, 22 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 10.0
 [connection signal="area_shape_entered" from="." to="." method="_on_Enemy_area_shape_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="Sound" to="." method="_on_Sound_finished"]

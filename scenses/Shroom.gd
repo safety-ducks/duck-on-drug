@@ -14,9 +14,15 @@ func _ready():
 
 
 func _on_Shroom_body_entered(body):
-	if body.get_name() == "Player":
+	if body.get_name() == "Player" and visible:
 		body.revert_gravity()
-		queue_free()
+		$ShroomSound.play()
+		hide()
+		
 		
 	#print("lifes left: ", body.lifes)
 	pass # Replace with function body.
+
+
+func _on_ShroomSound_finished():
+	queue_free()
