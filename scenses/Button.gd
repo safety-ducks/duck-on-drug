@@ -19,7 +19,9 @@ func _on_Button_button_down():
 
 
 func _on_Button_pressed():
-	var node = get_node("/root/MainScene/CanvasLayer/UI")
-	node.hide()
+	get_node("/root/MainScene/CanvasLayer/HUD/Lives").text = "Lives: "+str(get_node("/root/MainScene/Player").lifes)
+	
+	get_node("/root/MainScene/CanvasLayer/UI").hide()
+	
 	get_parent().get_tree().paused = false
 	pass # Replace with function body.
