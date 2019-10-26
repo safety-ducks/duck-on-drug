@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Enemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/Enemy2@2x.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/Enemy2@3x.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 11.7172
+height = 17.1462
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource( 1 )
+enemy_speed = 100
+time_max = 10
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+offset = Vector2( 15.31, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Front" type="RayCast2D" parent="."]
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 20 )
+
+[node name="Rear" type="RayCast2D" parent="."]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 20 )
+
+[node name="BottomRear" type="RayCast2D" parent="."]
+position = Vector2( 14.6847, 0 )
+enabled = true
+cast_to = Vector2( 0, 22 )
+
+[node name="BottomFront" type="RayCast2D" parent="."]
+position = Vector2( -15.2005, 0 )
+enabled = true
+cast_to = Vector2( 0, 22 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
