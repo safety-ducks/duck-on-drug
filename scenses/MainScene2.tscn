@@ -11,7 +11,6 @@ pause_mode = 1
 script = ExtResource( 1 )
 
 [node name="Ramps" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="BasicRamp" parent="Ramps" instance=ExtResource( 2 )]
 position = Vector2( 244.92, 782.761 )
@@ -432,7 +431,7 @@ scale = Vector2( 0.19, -1 )
 
 [node name="BasicRamp29" parent="Ramps" instance=ExtResource( 2 )]
 position = Vector2( 1914.3, -55.4464 )
-rotation = 2.53518e-06
+rotation = 2.53518e-006
 scale = Vector2( 0.5, -1 )
 
 [node name="BasicRamp98" parent="Ramps" instance=ExtResource( 2 )]
@@ -690,7 +689,7 @@ enemy_speed = 150
 time_min = 4
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( -1013.92, 1517.62 )
+position = Vector2( -1013.65, 1516.79 )
 scale = Vector2( 2, 2 )
 enemy_speed = 150
 time_min = 4
