@@ -12,17 +12,23 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func start_game():
+	get_node("/root/MainScene/CanvasLayer/HUD/Lives").text = "Lives: "+str(get_node("/root/MainScene/Player").lifes)
+	get_node("/root/MainScene/CanvasLayer/UI").hide()
 
-func _on_Button_button_down():
+	get_parent().get_tree().paused = false
 
 	pass # Replace with function body.
 
 
-func _on_Button_pressed():
-	get_node("/root/MainScene/CanvasLayer/HUD/Lives").text = "Lives: "+str(get_node("/root/MainScene/Player").lifes)
-	
-	get_node("/root/MainScene/CanvasLayer/UI").hide()
-	
-	get_parent().get_tree().paused = false
 
+func _on_Button_pressed():
+	get_node("/root/MainScene/CanvasLayer/UI/Texture/Anim").play("turn")
+	get_node("/root/MainScene/CanvasLayer/UI/StartDelay").start()
+	hide()
+	pass # Replace with function body.
+
+
+func _on_StartDelay_timeout():
+	start_game()
 	pass # Replace with function body.

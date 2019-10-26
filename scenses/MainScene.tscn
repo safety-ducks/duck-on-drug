@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenses/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Background.jpg" type="Texture" id=2]
@@ -9,28 +9,37 @@
 [ext_resource path="res://assets/images/menu.png" type="Texture" id=7]
 [ext_resource path="res://assets/images/duck/kaczkabeznog/kaczka1.png" type="Texture" id=8]
 [ext_resource path="res://assets/images/duck/kaczkabeznog/kaczka2.png" type="Texture" id=9]
-[ext_resource path="res://assets/images/wanna.png" type="Texture" id=10]
-[ext_resource path="res://assets/fonts/ubuntu-font-family/UbuntuMono-B.ttf" type="DynamicFontData" id=11]
-[ext_resource path="res://scenses/Button.gd" type="Script" id=12]
-[ext_resource path="res://assets/sounds/menu music.ogg" type="AudioStream" id=13]
-[ext_resource path="res://scenses/AudioStreamPlayer.gd" type="Script" id=14]
-[ext_resource path="res://scenses/MainScene2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/images/duck/kaczkasiekrecipng/1.png" type="Texture" id=10]
+[ext_resource path="res://assets/images/duck/kaczkasiekrecipng/2.png" type="Texture" id=11]
+[ext_resource path="res://assets/images/duck/kaczkasiekrecipng/3.png" type="Texture" id=12]
+[ext_resource path="res://assets/images/duck/kaczkasiekrecipng/4.png" type="Texture" id=13]
+[ext_resource path="res://assets/images/wanna.png" type="Texture" id=14]
+[ext_resource path="res://assets/fonts/ubuntu-font-family/UbuntuMono-B.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://scenses/Button.gd" type="Script" id=16]
+[ext_resource path="res://assets/sounds/menu music.ogg" type="AudioStream" id=17]
+[ext_resource path="res://scenses/AudioStreamPlayer.gd" type="Script" id=18]
+[ext_resource path="res://scenses/MainScene2.tscn" type="PackedScene" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 5 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "turn",
+"speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 100
-font_data = ExtResource( 11 )
+font_data = ExtResource( 15 )
 
 [node name="MainScene" type="Node2D"]
 pause_mode = 1
@@ -77,7 +86,8 @@ text = "Trip level: 0"
 pause_mode = 2
 script = ExtResource( 6 )
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI"]
+[node name="Texture" type="TextureRect" parent="CanvasLayer/UI"]
+editor/display_folded = true
 margin_left = 3.23535
 margin_top = 0.323517
 margin_right = 1923.24
@@ -87,18 +97,18 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource( 7 )
 expand = true
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/UI/TextureRect"]
+[node name="Anim" type="AnimatedSprite" parent="CanvasLayer/UI/Texture"]
 position = Vector2( 530.495, 448.313 )
 scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 playing = true
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/TextureRect"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Texture"]
 margin_left = 9.53674e-07
 margin_top = -0.45353
 margin_right = 1920.0
 margin_bottom = 1079.55
-texture = ExtResource( 10 )
+texture = ExtResource( 14 )
 
 [node name="Button" type="Button" parent="CanvasLayer/UI"]
 margin_left = 327.6
@@ -106,14 +116,19 @@ margin_top = 266.627
 margin_right = 839.602
 margin_bottom = 372.627
 rect_scale = Vector2( 0.20809, 1.01479 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 flat = true
-script = ExtResource( 12 )
+script = ExtResource( 16 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/UI"]
-stream = ExtResource( 13 )
+stream = ExtResource( 17 )
 autoplay = true
-script = ExtResource( 14 )
+script = ExtResource( 18 )
 
-[node name="Level" parent="." instance=ExtResource( 15 )]
+[node name="StartDelay" type="Timer" parent="CanvasLayer/UI"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Level" parent="." instance=ExtResource( 19 )]
 [connection signal="pressed" from="CanvasLayer/UI/Button" to="CanvasLayer/UI/Button" method="_on_Button_pressed"]
+[connection signal="timeout" from="CanvasLayer/UI/StartDelay" to="CanvasLayer/UI/Button" method="_on_StartDelay_timeout"]
