@@ -19,6 +19,7 @@ config/name="duck-on-drags.project"
 run/main_scene="res://scenses/MainScene.tscn"
 config/icon="res://icon.png"
 
+<<<<<<< HEAD
 [debug]
 
 settings/fps/force_fps=60
@@ -28,6 +29,8 @@ settings/fps/force_fps=60
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+=======
+>>>>>>> origin/level-fixes
 [rendering]
 
 environment/default_environment="res://default_env.tres"
