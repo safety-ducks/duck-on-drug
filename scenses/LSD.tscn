@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenses/LSD.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/LSD.png" type="Texture" id=2]
 [ext_resource path="res://assets/sounds/lsd.wav" type="AudioStream" id=3]
+[ext_resource path="res://scenses/Particles2D.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SizeScalePulse"
@@ -35,6 +36,27 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 35.692, 36.0954 )
 
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.335404, 0.751445, 0.99422 )
+colors = PoolColorArray( 0.054902, 0.529412, 0.580392, 0, 0.0804901, 0.754494, 0.824219, 1, 0.64537, 0.0271301, 0.992188, 1, 0.992157, 0.976471, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 30, 30, 30 )
+flag_disable_z = true
+gravity = Vector3( 0, 10, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 45.0
+scale = 10.0
+color_ramp = SubResource( 5 )
+
 [node name="LSD" type="Area2D"]
 scale = Vector2( 0.913834, 0.913834 )
 script = ExtResource( 1 )
@@ -55,5 +77,14 @@ shape = SubResource( 2 )
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 volume_db = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 6 )
+z_index = -1
+amount = 4
+lifetime = 4.0
+preprocess = 3.0
+process_material = SubResource( 3 )
+script = ExtResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_LSD_body_entered"]
 [connection signal="finished" from="Sound" to="." method="_on_Sound_finished"]

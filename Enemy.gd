@@ -39,9 +39,10 @@ func _on_Timer_timeout():
 
 
 func _on_Enemy_body_entered(body):
-	if body.get_name() == "Player" and visible:
+	if body.get_name() == "Player" and $AnimatedSprite.visible:
 		body.get_damage()
-		hide()
+		$Particles2D.emitting = true
+		$AnimatedSprite.hide()
 		$Sound.play()
 		$Timer.stop()
 	#print("lifes left: ", body.lifes)
