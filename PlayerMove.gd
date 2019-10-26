@@ -17,7 +17,7 @@ func _process(delta):
 func _physics_process(delta):	
 	var value = speed_value
 	if Input.is_key_pressed(KEY_SHIFT):
-		value = speed_value * 2
+		value = speed_value * 0.5
 		
 	if Input.is_key_pressed(KEY_RIGHT):
 		speed.x = value
@@ -29,6 +29,17 @@ func _physics_process(delta):
 		speed.x = 0
 	
 	if  is_on_floor() and Input.is_key_pressed(KEY_SPACE):
+		var random = randi()%4+1
+		print_debug(random)
+		if random == 3:
+			$sound1.play()
+		elif random == 2:
+			$sound2.play()
+		elif random == 1:
+			$sound3.play()
+		elif random == 4:
+			$sound4.play()	
+		
 		speed.y = -300
 	else:
 		if is_on_ceiling():
