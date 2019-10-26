@@ -19,6 +19,10 @@ config/name="duck-on-drags.project"
 run/main_scene="res://scenses/MainScene.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+settings/fps/force_fps=60
+
 [display]
 
 window/stretch/mode="viewport"

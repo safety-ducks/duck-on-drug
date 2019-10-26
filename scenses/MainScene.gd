@@ -16,6 +16,5 @@ func _process(delta):
 	
 
 func _on_Button_pressed():
-	get_parent()
 	get_parent().get_tree().paused = false
 	pass # Replace with function body.
