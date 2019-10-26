@@ -40,3 +40,10 @@ script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 position = Vector2( 40, 350 )
+
+[node name="LifeCounter" type="RichTextLabel" parent="Player"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/default_color = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
+text = "3"
