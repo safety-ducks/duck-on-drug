@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenses/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Background.jpg" type="Texture" id=2]
@@ -7,19 +7,30 @@
 [ext_resource path="res://assets/fonts/ubuntu-font-family/Ubuntu-M.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scenses/Node.gd" type="Script" id=6]
 [ext_resource path="res://assets/images/menu.png" type="Texture" id=7]
-[ext_resource path="res://assets/fonts/ubuntu-font-family/UbuntuMono-B.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://scenses/Button.gd" type="Script" id=9]
-[ext_resource path="res://assets/sounds/menu music.ogg" type="AudioStream" id=10]
-[ext_resource path="res://scenses/AudioStreamPlayer.gd" type="Script" id=11]
-[ext_resource path="res://scenses/MainScene2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/images/duck/kaczkabeznog/kaczka1.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/duck/kaczkabeznog/kaczka2.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/wanna.png" type="Texture" id=10]
+[ext_resource path="res://assets/fonts/ubuntu-font-family/UbuntuMono-B.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://scenses/Button.gd" type="Script" id=12]
+[ext_resource path="res://assets/sounds/menu music.ogg" type="AudioStream" id=13]
+[ext_resource path="res://scenses/AudioStreamPlayer.gd" type="Script" id=14]
+[ext_resource path="res://scenses/MainScene2.tscn" type="PackedScene" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 5 )
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [sub_resource type="DynamicFont" id=2]
 size = 100
-font_data = ExtResource( 8 )
+font_data = ExtResource( 11 )
 
 [node name="MainScene" type="Node2D"]
 pause_mode = 1
@@ -42,7 +53,6 @@ texture = ExtResource( 2 )
 position = Vector2( 70, -580 )
 scale = Vector2( 1.00275, 1.00032 )
 speed_value = 200
-jump_force = -500
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -77,19 +87,33 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource( 7 )
 expand = true
 
-[node name="Button" type="Button" parent="CanvasLayer/UI/TextureRect"]
-margin_left = 618.638
-margin_top = 586.778
-margin_right = 1130.64
-margin_bottom = 692.778
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/UI/TextureRect"]
+position = Vector2( 530.495, 448.313 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/TextureRect"]
+margin_left = 9.53674e-07
+margin_top = -0.45353
+margin_right = 1920.0
+margin_bottom = 1079.55
+texture = ExtResource( 10 )
+
+[node name="Button" type="Button" parent="CanvasLayer/UI"]
+margin_left = 327.6
+margin_top = 266.627
+margin_right = 839.602
+margin_bottom = 372.627
+rect_scale = Vector2( 0.20809, 1.01479 )
 custom_fonts/font = SubResource( 2 )
-text = "START GAME"
-script = ExtResource( 9 )
+flat = true
+script = ExtResource( 12 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/UI"]
-stream = ExtResource( 10 )
+stream = ExtResource( 13 )
 autoplay = true
-script = ExtResource( 11 )
+script = ExtResource( 14 )
 
-[node name="Level" parent="." instance=ExtResource( 12 )]
-[connection signal="pressed" from="CanvasLayer/UI/TextureRect/Button" to="CanvasLayer/UI/TextureRect/Button" method="_on_Button_pressed"]
+[node name="Level" parent="." instance=ExtResource( 15 )]
+[connection signal="pressed" from="CanvasLayer/UI/Button" to="CanvasLayer/UI/Button" method="_on_Button_pressed"]
