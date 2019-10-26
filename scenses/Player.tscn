@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://PlayerMove.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/rubber-duck-icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/Duck3.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/Duck4.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/Duck5.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/duck7.wav" type="AudioStream" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 22.6917
+height = 6.68311
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+speed_value = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 477.004, 387.354 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 479.95, 387.179 )
+scale = Vector2( 0.189284, 0.18884 )
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 477.037, 387.228 )
+current = true
+smoothing_enabled = true
+
+[node name="sound1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="sound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="sound3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="sound4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+[connection signal="input_event" from="." to="." method="_on_Player_input_event"]
