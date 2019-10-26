@@ -8,11 +8,15 @@ export var jump_force = -300
 export var pick_up_time = 5.0
 
 var gravity_reverse = false
-
+var trip_level = 0
 var speed = Vector2()
 
+
+func update_trip_level(value):
+	trip_level += value
+	get_node("/root/MainScene/CanvasLayer/HUD/TripLevel").text = "Trip level: " + str(trip_level)
+
 func revert_gravity():
-	
 	jump_force *= -1
 	G *= -1
 	gravity_reverse = not gravity_reverse
@@ -85,4 +89,9 @@ func _on_Area2D_body_entered(body):
 func _on_GravityTimer_timeout():
 	revert_gravity()
 	$GravityTimer.stop()
+	pass # Replace with function body.
+
+
+func _on_TripTimer_timeout():
+	update_trip_level(-10)
 	pass # Replace with function body.

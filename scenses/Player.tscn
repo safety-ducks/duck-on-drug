@@ -41,5 +41,9 @@ stream = ExtResource( 6 )
 [node name="GravityTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+
+[node name="TripTimer" type="Timer" parent="."]
+autostart = true
 [connection signal="input_event" from="." to="." method="_on_Player_input_event"]
 [connection signal="timeout" from="GravityTimer" to="." method="_on_GravityTimer_timeout"]
+[connection signal="timeout" from="TripTimer" to="." method="_on_TripTimer_timeout"]
