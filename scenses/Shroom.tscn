@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenses/Shroom.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Shroom.png" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/shroom.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Shroom"
@@ -30,18 +31,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0, 360.0 ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Area2D/AnimationPlayer:playback_speed")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 2.63903, 8.28212 ),
-"update": 0,
-"values": [ 0.5, 1.0 ]
-}
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 33.2571
@@ -63,4 +52,9 @@ anims/Shroom = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -2.98023e-008
 shape = SubResource( 2 )
+
+[node name="ShroomSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 5.0
 [connection signal="body_entered" from="." to="." method="_on_Shroom_body_entered"]
+[connection signal="finished" from="ShroomSound" to="." method="_on_ShroomSound_finished"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenses/LSD.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/LSD.png" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/lsd.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SizeScalePulse"
@@ -50,4 +51,9 @@ anims/SizeScalePulse = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 0.785398
 shape = SubResource( 2 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 5.0
 [connection signal="body_entered" from="." to="." method="_on_LSD_body_entered"]
+[connection signal="finished" from="Sound" to="." method="_on_Sound_finished"]

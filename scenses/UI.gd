@@ -17,5 +17,5 @@ func _process(delta):
 func _input(ev):
 	if Input.is_key_pressed(KEY_ESCAPE):
 		#vsible = not visible
-		get_parent().get_tree().paused = visible
+		get_parent().get_tree().paused = true
 	

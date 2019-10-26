@@ -39,13 +39,19 @@ func _on_Timer_timeout():
 
 
 func _on_Enemy_body_entered(body):
-	if body.get_name() == "Player":
+	if body.get_name() == "Player" and visible:
 		body.get_damage()
+		hide()
+		$Sound.play()
 		$Timer.stop()
-		queue_free()
 	#print("lifes left: ", body.lifes)
 	pass # Replace with function body.
 
 
 func _on_Enemy_area_shape_entered(area_id, area, area_shape, self_shape):
+	pass # Replace with function body.
+
+
+func _on_Sound_finished():
+	queue_free()
 	pass # Replace with function body.
