@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenses/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://scenses/BasicRamp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenses/BasicEnemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenses/HUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenses/UI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenses/UI.gd" type="Script" id=6]
-[ext_resource path="res://scenses/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenses/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenses/CanvasLayer.gd" type="Script" id=5]
+[ext_resource path="res://scenses/Node.gd" type="Script" id=6]
+[ext_resource path="res://assets/images/menu.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/ubuntu-font-family/UbuntuMono-B.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://scenses/Button.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 8 )
 
 [node name="MainScene" type="Node2D"]
 pause_mode = 1
@@ -30,13 +36,31 @@ position = Vector2( 839.596, 401.292 )
 [node name="BasicEnemy2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 558.302, 401.292 )
 
-[node name="HUD" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 40, 350 )
 
-[node name="UI" parent="." instance=ExtResource( 5 )]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
-visible = false
-modulate = Color( 1, 1, 1, 0.784314 )
+script = ExtResource( 5 )
+
+[node name="UI" type="Node2D" parent="CanvasLayer"]
+pause_mode = 2
+modulate = Color( 1, 1, 1, 0.47451 )
 script = ExtResource( 6 )
 
-[node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 40, 350 )
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.53343, 0.555284 )
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 7 )
+
+[node name="Button" type="Button" parent="CanvasLayer/UI/TextureRect"]
+margin_left = 618.638
+margin_top = 586.778
+margin_right = 1130.64
+margin_bottom = 692.778
+custom_fonts/font = SubResource( 1 )
+text = "START GAME"
+script = ExtResource( 9 )
+[connection signal="pressed" from="CanvasLayer/UI/TextureRect/Button" to="CanvasLayer/UI/TextureRect/Button" method="_on_Button_pressed"]
