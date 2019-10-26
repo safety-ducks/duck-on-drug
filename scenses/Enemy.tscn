@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Enemy2@2x.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/Enemy2@3x.png" type="Texture" id=3]
 [ext_resource path="res://assets/sounds/damage.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/images/smoke.png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,6 +17,32 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 11.7172
 height = 17.1462
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.217391, 0.801242, 1 )
+colors = PoolColorArray( 0.294118, 0.541176, 0.992157, 0, 0.00386429, 0.856461, 0.989258, 1, 0.760784, 0.0313726, 1, 1, 0.960784, 0.847059, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0.223533, 0 ), 0.0, 2.78287, 0, 0, Vector2( 1, 0 ), -2.17462, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 1, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 160.0
+angle_random = 1.0
+scale = 0.9
+scale_random = 0.03
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
 
 [node name="Enemy" type="Area2D"]
 script = ExtResource( 1 )
@@ -57,6 +84,15 @@ autostart = true
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 volume_db = 10.0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 10
+one_shot = true
+preprocess = 0.25
+explosiveness = 1.0
+process_material = SubResource( 7 )
+texture = ExtResource( 5 )
 [connection signal="area_shape_entered" from="." to="." method="_on_Enemy_area_shape_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

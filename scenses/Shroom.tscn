@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenses/Shroom.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Shroom.png" type="Texture" id=2]
@@ -35,13 +35,40 @@ tracks/1/keys = {
 [sub_resource type="CircleShape2D" id=2]
 radius = 33.2571
 
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 0.553894, 0, 0.585938, 1, 0.972656, 0.00759888, 0.91234, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0.0446429, 1 ), 0.0, 0.376918, 0, 0, Vector2( 0.597577, 0.4912 ), -0.330218, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 20.0
+flag_disable_z = true
+spread = 100.0
+flatness = 1.0
+gravity = Vector3( 0, -100, 0 )
+angular_velocity = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 45.0
+angle_random = 1.0
+scale = 6.0
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 4 )
+
 [node name="Shroom" type="Area2D"]
-rotation = 0.49167
 scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 1 )
 
 [node name="Area2D" type="Sprite" parent="."]
-scale = Vector2( 0.968468, 0.968468 )
+scale = Vector2( 0.765319, 0.765319 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
@@ -56,5 +83,11 @@ shape = SubResource( 2 )
 [node name="ShroomSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 volume_db = 5.0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+z_index = -1
+amount = 4
+lifetime = 1.2
+process_material = SubResource( 5 )
 [connection signal="body_entered" from="." to="." method="_on_Shroom_body_entered"]
 [connection signal="finished" from="ShroomSound" to="." method="_on_ShroomSound_finished"]
