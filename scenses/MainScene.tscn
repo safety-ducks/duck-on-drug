@@ -39,7 +39,8 @@ margin_bottom = 1201.19
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 61.2764, -581.811 )
+position = Vector2( 70, -580 )
+scale = Vector2( 1.00275, 1.00032 )
 speed_value = 200
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -66,8 +67,10 @@ pause_mode = 2
 script = ExtResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI"]
-margin_right = 1920.0
-margin_bottom = 1080.0
+margin_left = 3.23535
+margin_top = 0.323517
+margin_right = 1923.24
+margin_bottom = 1080.32
 rect_scale = Vector2( 0.710214, 0.713331 )
 size_flags_stretch_ratio = 0.0
 texture = ExtResource( 7 )
