@@ -50,7 +50,6 @@ func _physics_process(delta):
 			speed.y = 0
 		
 	move_and_slide(speed*delta*100,Vector2(0,-1))
-	print(move_and_collide(speed*delta))
 
 func _on_Area2D_body_entered(body):
 	print (body)

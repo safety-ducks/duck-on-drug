@@ -44,12 +44,12 @@ wait_time = 3.0
 autostart = true
 
 [node name="RayCast2D3" type="RayCast2D" parent="."]
-position = Vector2( -0.647064, -0.647072 )
+position = Vector2( -0.369674, -16.1809 )
 rotation = -1.571
 enabled = true
 
 [node name="RayCast2D4" type="RayCast2D" parent="."]
-position = Vector2( -0.647064, -0.647072 )
+position = Vector2( -0.924453, -14.7939 )
 rotation = 1.56986
 enabled = true
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]

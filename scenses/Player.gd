@@ -55,7 +55,7 @@ func _physics_process(delta):
 	
 func get_damage():
 	lifes -= 1
-	get_node("/root/MainScene/CanvasLayer/HUD/Lives").text = "Lives:" + str(lifes)
+	get_node("/root/MainScene/CanvasLayer/HUD/Lives").text = "Lives: " + str(lifes)
 
 func _on_Area2D_body_entered(body):
 	print (body)

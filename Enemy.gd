@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,7 +11,7 @@ var Velocity = Vector2()
 
 func flip():
 	Velocity.x *= -1
-	$Area2D/Sprite.flip_h = Velocity.x < 0
+	$AnimatedSprite.flip_h = Velocity.x < 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +23,7 @@ func _ready():
 #	pass
 
 func _physics_process(delta):
-	if not $RayCast2D.is_colliding() or not $RayCast2D2.is_colliding() or $RayCast2D3.is_colliding() or $RayCast2D4.is_colliding():
+	if not $BottomFront.is_colliding() or not $BottomRear.is_colliding() or $Rear.is_colliding() or $Front.is_colliding(): 
 		flip()
 		pass
 	
@@ -32,6 +32,20 @@ func _physics_process(delta):
 		
 func _on_Timer_timeout():
 	flip()
-	$Timer.stop()
+	#$Timer.stop()
 	$Timer.wait_time = rand_range(2,5)
+	pass # Replace with function body.
+	
+
+
+func _on_Enemy_body_entered(body):
+	if body.get_name() == "Player":
+		body.get_damage()
+		$Timer.stop()
+		queue_free()
+	print("lifes left: ", body.lifes)
+	pass # Replace with function body.
+
+
+func _on_Enemy_area_shape_entered(area_id, area, area_shape, self_shape):
 	pass # Replace with function body.
