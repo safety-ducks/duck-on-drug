@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenses/LSD.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/LSD.png" type="Texture" id=2]
-[ext_resource path="res://assets/sounds/lsd.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/fxy kwas/kwa kwas.wav" type="AudioStream" id=3]
 [ext_resource path="res://scenses/Particles2D.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
@@ -36,7 +36,7 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 35.692, 36.0954 )
 
-[sub_resource type="CanvasItemMaterial" id=6]
+[sub_resource type="CanvasItemMaterial" id=3]
 blend_mode = 1
 
 [sub_resource type="Gradient" id=4]
@@ -46,7 +46,7 @@ colors = PoolColorArray( 0.054902, 0.529412, 0.580392, 0, 0.0804901, 0.754494, 0
 [sub_resource type="GradientTexture" id=5]
 gradient = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=6]
 emission_shape = 2
 emission_box_extents = Vector3( 30, 30, 30 )
 flag_disable_z = true
@@ -79,12 +79,12 @@ stream = ExtResource( 3 )
 volume_db = 5.0
 
 [node name="Particles2D" type="Particles2D" parent="."]
-material = SubResource( 6 )
+material = SubResource( 3 )
 z_index = -1
 amount = 4
 lifetime = 4.0
 preprocess = 3.0
-process_material = SubResource( 3 )
+process_material = SubResource( 6 )
 script = ExtResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_LSD_body_entered"]
 [connection signal="finished" from="Sound" to="." method="_on_Sound_finished"]

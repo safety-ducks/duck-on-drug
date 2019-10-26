@@ -18,7 +18,9 @@ func _on_Timer_timeout():
 	var result = rand_range(0.0,1.0)
 	if result >= 0.5:
 		play("Win")
+		get_node("/root/Ending/Win").play()
 	else:
 		play("Lose")
+		get_node("/root/Ending/Lose").play()
 	print (str(result))
 	pass # Replace with function body.

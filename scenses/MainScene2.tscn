@@ -12,7 +12,6 @@ pause_mode = 1
 script = ExtResource( 1 )
 
 [node name="Ramps" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="BasicRamp" parent="Ramps" instance=ExtResource( 2 )]
 position = Vector2( 244.92, 782.761 )
@@ -560,7 +559,7 @@ position = Vector2( 3773.71, 1962.85 )
 scale = Vector2( 0.3, 1 )
 
 [node name="BasicRamp160" parent="Ramps" instance=ExtResource( 2 )]
-position = Vector2( 5382.09, 2859.94 )
+position = Vector2( 5462.09, 2880.99 )
 scale = Vector2( 0.3, 1 )
 
 [node name="BasicRamp137" parent="Ramps" instance=ExtResource( 2 )]
@@ -576,7 +575,7 @@ position = Vector2( 5202.07, 3112.99 )
 scale = Vector2( 0.1, 1 )
 
 [node name="BasicRamp159" parent="Ramps" instance=ExtResource( 2 )]
-position = Vector2( 5145.36, 2962.41 )
+position = Vector2( 5178.21, 2970.11 )
 scale = Vector2( 0.1, 1 )
 
 [node name="BasicRamp161" parent="Ramps" instance=ExtResource( 2 )]
@@ -584,11 +583,11 @@ position = Vector2( 5491.2, 2776.44 )
 scale = Vector2( 0.1, 1 )
 
 [node name="BasicRamp156" parent="Ramps" instance=ExtResource( 2 )]
-position = Vector2( 5469.13, 3214.85 )
+position = Vector2( 5414.63, 3187.13 )
 scale = Vector2( 0.1, 1 )
 
 [node name="BasicRamp158" parent="Ramps" instance=ExtResource( 2 )]
-position = Vector2( 5335.43, 3014.87 )
+position = Vector2( 5408.67, 3037.97 )
 scale = Vector2( 0.1, 1 )
 
 [node name="BasicRamp138" parent="Ramps" instance=ExtResource( 2 )]
@@ -673,7 +672,7 @@ scale = Vector2( 0.19, -1 )
 
 [node name="BasicRamp29" parent="Ramps" instance=ExtResource( 2 )]
 position = Vector2( 1914.3, -55.4464 )
-rotation = 2.53518e-06
+rotation = 2.53518e-006
 scale = Vector2( 0.5, -1 )
 
 [node name="BasicRamp98" parent="Ramps" instance=ExtResource( 2 )]

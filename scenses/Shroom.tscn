@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenses/Shroom.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Shroom.png" type="Texture" id=2]
-[ext_resource path="res://assets/sounds/shroom.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/fxy kwas/so high.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Shroom"
@@ -41,13 +41,13 @@ colors = PoolColorArray( 0.553894, 0, 0.585938, 1, 0.972656, 0.00759888, 0.91234
 [sub_resource type="GradientTexture" id=4]
 gradient = SubResource( 3 )
 
-[sub_resource type="Curve" id=6]
+[sub_resource type="Curve" id=5]
 _data = [ Vector2( 0.0446429, 1 ), 0.0, 0.376918, 0, 0, Vector2( 0.597577, 0.4912 ), -0.330218, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=7]
-curve = SubResource( 6 )
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=7]
 emission_shape = 1
 emission_sphere_radius = 20.0
 flag_disable_z = true
@@ -60,7 +60,7 @@ orbit_velocity_random = 0.0
 angle = 45.0
 angle_random = 1.0
 scale = 6.0
-scale_curve = SubResource( 7 )
+scale_curve = SubResource( 6 )
 color_ramp = SubResource( 4 )
 
 [node name="Shroom" type="Area2D"]
@@ -88,6 +88,6 @@ volume_db = 5.0
 z_index = -1
 amount = 4
 lifetime = 1.2
-process_material = SubResource( 5 )
+process_material = SubResource( 7 )
 [connection signal="body_entered" from="." to="." method="_on_Shroom_body_entered"]
 [connection signal="finished" from="ShroomSound" to="." method="_on_ShroomSound_finished"]

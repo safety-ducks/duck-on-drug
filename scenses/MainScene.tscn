@@ -75,7 +75,7 @@ margin_bottom = 1201.19
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 70, -580 )
+position = Vector2( 3732.68, 4710.13 )
 scale = Vector2( 1.00275, 1.00032 )
 speed_value = 200
 
@@ -150,5 +150,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Level" parent="." instance=ExtResource( 19 )]
+position = Vector2( -4.55029, 5.11914 )
 [connection signal="pressed" from="CanvasLayer/UI/Button" to="CanvasLayer/UI/Button" method="_on_Button_pressed"]
 [connection signal="timeout" from="CanvasLayer/UI/StartDelay" to="CanvasLayer/UI/Button" method="_on_StartDelay_timeout"]
