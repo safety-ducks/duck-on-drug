@@ -37,7 +37,7 @@ margin_bottom = 1201.19
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 61.2764, -581.811 )
+position = Vector2( 63.3881, -845.491 )
 speed_value = 200
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
@@ -51,6 +51,7 @@ pause_mode = 2
 script = ExtResource( 5 )
 
 [node name="HUD" type="Node2D" parent="CanvasLayer"]
+visible = false
 
 [node name="Lives" type="Label" parent="CanvasLayer/HUD"]
 margin_right = 40.0
@@ -86,4 +87,5 @@ text = "START GAME"
 script = ExtResource( 10 )
 
 [node name="Level" parent="." instance=ExtResource( 11 )]
+position = Vector2( -1.83911, 3.02319 )
 [connection signal="pressed" from="CanvasLayer/UI/TextureRect/Button" to="CanvasLayer/UI/TextureRect/Button" method="_on_Button_pressed"]
