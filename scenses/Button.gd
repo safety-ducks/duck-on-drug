@@ -15,7 +15,8 @@ func _ready():
 func start_game():
 	get_node("/root/MainScene/CanvasLayer/HUD/Lives").text = "Lives: "+str(get_node("/root/MainScene/Player").lifes)
 	get_node("/root/MainScene/CanvasLayer/UI").hide()
-
+	get_node("/root/MainScene/CanvasLayer/UI/Texture/Node2D/Anim").hide()
+	get_node("/root/MainScene/CanvasLayer/UI/Texture/Label").hide()
 	get_parent().get_tree().paused = false
 
 	pass # Replace with function body.
