@@ -19,11 +19,6 @@ config/name="duck-on-drags.project"
 run/main_scene="res://scenses/MainScene.tscn"
 config/icon="res://icon.png"
 
-[display]
-
-window/stretch/mode="viewport"
-window/stretch/aspect="keep"
-
 [rendering]
 
 environment/default_environment="res://default_env.tres"
