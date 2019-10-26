@@ -7,6 +7,8 @@ export var jump_force = -300
 
 export var pick_up_time = 5.0
 
+var current_animation = "default"
+
 var gravity_reverse = false
 var trip_level = 200
 var speed = Vector2()
@@ -53,6 +55,8 @@ func _physics_process(delta):
 		get_node("Sprite").set_flip_h(true)
 	else:
 		speed.x = 0
+
+	
 	
 	if  is_on_floor() and Input.is_key_pressed(KEY_SPACE):
 		var random = randi()%4+1
@@ -74,6 +78,17 @@ func _physics_process(delta):
 			speed.y += G
 		else: 
 			speed.y = 0
+			
+	if abs(speed.x) > 1 and abs(speed.y) <= G:
+		current_animation = "walk"
+	elif speed.y<0:
+		current_animation = "jump"
+	else:
+		current_animation = "default"
+		print(speed.y)	
+			
+	if $Sprite.animation != current_animation:
+		$Sprite.play(current_animation)
 		
 	move_and_slide(speed*delta*100,Vector2(0, (1 if gravity_reverse else -1) ))
 	# print(move_and_collide(speed*delta))
