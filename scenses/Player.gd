@@ -8,13 +8,16 @@ export var jump_force = -300
 export var pick_up_time = 5.0
 
 var gravity_reverse = false
-var trip_level = 0
+var trip_level = 200
 var speed = Vector2()
 
 
 func update_trip_level(value):
 	trip_level += value
 	get_node("/root/MainScene/CanvasLayer/HUD/TripLevel").text = "Trip level: " + str(trip_level)
+
+func stopTripCounter():
+	$TripTimer.stop()
 
 func revert_gravity():
 	jump_force *= -1
@@ -37,10 +40,10 @@ func _process(delta):
 	
 func _physics_process(delta):	
 	var value = speed_value
-	if Input.is_key_pressed(KEY_CONTROL):
-		if not gravity_reverse:
-			revert_gravity()
-		pass
+	#if Input.is_key_pressed(KEY_CONTROL):
+	#	if not gravity_reverse:
+	#		revert_gravity()
+	#	pass
 		
 	if Input.is_key_pressed(KEY_RIGHT):
 		speed.x = value

@@ -37,7 +37,7 @@ margin_bottom = 1201.19
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 63.7909, -220.339 )
+position = Vector2( 5546.69, 2724.25 )
 speed_value = 200
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
