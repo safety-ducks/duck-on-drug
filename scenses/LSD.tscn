@@ -2,10 +2,7 @@
 
 [ext_resource path="res://assets/images/LSD.png" type="Texture" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 35.692, 36.0954 )
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "SizeScalePulse"
 loop = true
 tracks/0/type = "value"
@@ -33,27 +30,22 @@ tracks/1/keys = {
 "values": [ -15.0, 15.0, -15.0 ]
 }
 
-[node name="LSD" type="Sprite"]
-rotation = -0.226111
-scale = Vector2( 0.989276, 0.989276 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 35.692, 36.0954 )
+
+[node name="LSD" type="Area2D"]
+scale = Vector2( 0.913834, 0.913834 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = -0.183573
+scale = Vector2( 0.971415, 0.971415 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Area2D" type="Area2D" parent="."]
-input_pickable = false
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-rotation = 0.785398
-shape = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 playback_speed = 0.75
-anims/SizeScalePulse = SubResource( 2 )
+anims/SizeScalePulse = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.785398
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
