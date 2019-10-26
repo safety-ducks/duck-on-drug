@@ -17,7 +17,19 @@ _global_script_class_icons={
 
 config/name="duck-on-drags.project"
 run/main_scene="res://scenses/MainScene.tscn"
+boot_splash/image="res://icon.png"
 config/icon="res://icon.png"
+
+[debug]
+
+settings/fps/force_fps=60
+
+[display]
+
+window/size/width=1366
+window/size/height=768
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [rendering]
 

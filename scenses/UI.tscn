@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenses/UI.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/menu.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/ubuntu-font-family/Ubuntu-M.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+extra_spacing_top = 5
+extra_spacing_bottom = 5
+font_data = ExtResource( 3 )
+
+[node name="UI" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_fonts/font = SubResource( 1 )
+text = "START GAME"

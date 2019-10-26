@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/so high.wav-71952839c848b31e176c542c2797797a.sample"
+
+[deps]
+
+source_file="res://assets/sounds/fxy kwas/so high.wav"
+dest_files=[ "res://.import/so high.wav-71952839c848b31e176c542c2797797a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
