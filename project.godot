@@ -17,9 +17,6 @@ _global_script_class_icons={
 
 config/name="duck-on-drags.project"
 run/main_scene="res://scenses/MainScene.tscn"
-boot_splash/image="res://icon.png"
-boot_splash/fullsize=false
-boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
 
 [debug]
