@@ -1,61 +1,49 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenses/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Background.jpg" type="Texture" id=2]
-[ext_resource path="res://scenses/BasicRamp.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenses/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenses/CanvasLayer.gd" type="Script" id=5]
-[ext_resource path="res://assets/fonts/ubuntu-font-family/Ubuntu-M.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://scenses/Node.gd" type="Script" id=7]
-[ext_resource path="res://assets/images/menu.png" type="Texture" id=8]
-[ext_resource path="res://assets/fonts/ubuntu-font-family/UbuntuMono-B.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://scenses/Button.gd" type="Script" id=10]
-[ext_resource path="res://assets/sounds/menu music.wav" type="AudioStream" id=11]
-[ext_resource path="res://scenses/Enemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenses/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenses/CanvasLayer.gd" type="Script" id=4]
+[ext_resource path="res://assets/fonts/ubuntu-font-family/Ubuntu-M.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scenses/Node.gd" type="Script" id=6]
+[ext_resource path="res://assets/images/menu.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/ubuntu-font-family/UbuntuMono-B.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://scenses/Button.gd" type="Script" id=9]
+[ext_resource path="res://assets/sounds/menu music.wav" type="AudioStream" id=10]
+[ext_resource path="res://scenses/MainScene2.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
-font_data = ExtResource( 6 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
-font_data = ExtResource( 9 )
+font_data = ExtResource( 8 )
 
 [node name="MainScene" type="Node2D"]
 pause_mode = 1
 script = ExtResource( 1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.2, 0.2 )
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
-margin_left = -830.0
-margin_top = -800.0
-margin_right = 6850.0
-margin_bottom = 1360.0
+margin_left = -1269.09
+margin_top = -958.811
+margin_right = 6410.91
+margin_bottom = 1201.19
 texture = ExtResource( 2 )
 
-[node name="BasicRamp" parent="." instance=ExtResource( 3 )]
-position = Vector2( 261.034, 588.302 )
-
-[node name="BasicRamp2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 781.155, 588.302 )
-
-[node name="BasicRamp3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 681.807, 463.629 )
-
-[node name="BasicRamp4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 200.774, 400.454 )
-
-[node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 40, 350 )
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 63.7909, -220.339 )
+speed_value = 200
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
-script = ExtResource( 5 )
+editor/display_folded = true
+script = ExtResource( 4 )
 
 [node name="HUD" type="Node2D" parent="CanvasLayer"]
 
@@ -67,14 +55,14 @@ text = "Lives: "
 
 [node name="UI" type="Node2D" parent="CanvasLayer"]
 pause_mode = 2
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 rect_scale = Vector2( 0.53343, 0.555284 )
 size_flags_stretch_ratio = 0.0
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="Button" type="Button" parent="CanvasLayer/UI/TextureRect"]
 margin_left = 618.638
@@ -83,21 +71,11 @@ margin_right = 1130.64
 margin_bottom = 692.778
 custom_fonts/font = SubResource( 2 )
 text = "START GAME"
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer"]
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 autoplay = true
 
-[node name="Enemy" parent="." instance=ExtResource( 12 )]
-position = Vector2( 429.723, 346.103 )
-scale = Vector2( 2, 2 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 12 )]
-position = Vector2( 261.034, 534.253 )
-scale = Vector2( 2, 2 )
-
-[node name="Enemy2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 780, 410 )
-scale = Vector2( 2, 2 )
+[node name="Level" parent="." instance=ExtResource( 11 )]
 [connection signal="pressed" from="CanvasLayer/UI/TextureRect/Button" to="CanvasLayer/UI/TextureRect/Button" method="_on_Button_pressed"]

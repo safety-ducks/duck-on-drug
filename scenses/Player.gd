@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var speed_value = 1
 export var lifes = 3
+export var gravity_force = -300
 
 var speed = Vector2()
 
@@ -41,7 +42,7 @@ func _physics_process(delta):
 		elif random == 4:
 			$sound4.play()	
 		
-		speed.y = -300
+		speed.y = gravity_force
 	else:
 		if is_on_ceiling():
 			speed.y=0		

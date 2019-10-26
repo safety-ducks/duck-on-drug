@@ -13,5 +13,5 @@ func _on_Area2D_body_entered(body):
 		body.get_damage()
 		$Timer.stop()
 		queue_free()
-	print("lifes left: ", body.lifes)
+	#print("lifes left: ", body.lifes)
 	pass # Replace with function body.
