@@ -83,6 +83,8 @@ func _physics_process(delta):
 		current_animation = "walk"
 	elif speed.y<0:
 		current_animation = "jump"
+	elif speed.y>0:
+		current_animation = "fall"
 	else:
 		current_animation = "default"
 		print(speed.y)	

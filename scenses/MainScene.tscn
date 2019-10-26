@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenses/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Background.jpg" type="Texture" id=2]
@@ -9,8 +9,9 @@
 [ext_resource path="res://assets/images/menu.png" type="Texture" id=7]
 [ext_resource path="res://assets/fonts/ubuntu-font-family/UbuntuMono-B.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://scenses/Button.gd" type="Script" id=9]
-[ext_resource path="res://assets/sounds/menu music.wav" type="AudioStream" id=10]
-[ext_resource path="res://scenses/MainScene2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/sounds/menu music.ogg" type="AudioStream" id=10]
+[ext_resource path="res://scenses/AudioStreamPlayer.gd" type="Script" id=11]
+[ext_resource path="res://scenses/MainScene2.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -84,6 +85,7 @@ script = ExtResource( 9 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/UI"]
 stream = ExtResource( 10 )
 autoplay = true
+script = ExtResource( 11 )
 
-[node name="Level" parent="." instance=ExtResource( 11 )]
+[node name="Level" parent="." instance=ExtResource( 12 )]
 [connection signal="pressed" from="CanvasLayer/UI/TextureRect/Button" to="CanvasLayer/UI/TextureRect/Button" method="_on_Button_pressed"]
