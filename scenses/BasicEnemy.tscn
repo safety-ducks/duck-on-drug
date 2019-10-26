@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenses/BasicEnemy.gd" type="Script" id=1]
-[ext_resource path="res://assets/images/enemy.png" type="Texture" id=2]
+[ext_resource path="res://scenses/Area2D.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/enemy.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.8622, 32.0275 )
@@ -17,12 +18,13 @@ time_min = 1
 time_max = 2
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Area2D"]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
@@ -50,4 +52,5 @@ enabled = true
 position = Vector2( -0.924453, -14.7939 )
 rotation = 1.56986
 enabled = true
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
