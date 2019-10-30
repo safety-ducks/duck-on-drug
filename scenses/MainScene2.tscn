@@ -672,7 +672,7 @@ scale = Vector2( 0.19, -1 )
 
 [node name="BasicRamp29" parent="Ramps" instance=ExtResource( 2 )]
 position = Vector2( 1914.3, -55.4464 )
-rotation = 2.53518e-006
+rotation = 2.53518e-06
 scale = Vector2( 0.5, -1 )
 
 [node name="BasicRamp98" parent="Ramps" instance=ExtResource( 2 )]
@@ -1993,7 +1993,6 @@ enemy_speed = 150
 time_min = 4
 
 [node name="PickUps" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Shroom" parent="PickUps" instance=ExtResource( 4 )]
 position = Vector2( -990.402, 460.05 )

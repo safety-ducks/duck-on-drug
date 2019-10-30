@@ -127,7 +127,7 @@ frame = 1
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Texture"]
-margin_left = 9.53674e-007
+margin_left = 9.53674e-07
 margin_top = -0.45353
 margin_right = 1920.0
 margin_bottom = 1079.55

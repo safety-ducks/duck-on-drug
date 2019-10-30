@@ -6,12 +6,14 @@ export var G = 10
 export var jump_force = -300
 
 export var pick_up_time = 5.0
+export var shock_time = 5.0
 
 var current_animation = "default"
 
 var gravity_reverse = false
 var trip_level = 200
 var speed = Vector2()
+var direction=1
 
 
 func update_trip_level(value):
@@ -48,11 +50,11 @@ func _physics_process(delta):
 	#	pass
 		
 	if Input.is_key_pressed(KEY_RIGHT):
-		speed.x = value
-		get_node("Sprite").set_flip_h(false)
+		speed.x = value*direction
+		get_node("Sprite").set_flip_h(direction==-1)
 	elif Input.is_key_pressed(KEY_LEFT):
-		speed.x = -value
-		get_node("Sprite").set_flip_h(true)
+		speed.x = -value*direction
+		get_node("Sprite").set_flip_h(direction==1)
 	else:
 		speed.x = 0
 
@@ -97,7 +99,11 @@ func _physics_process(delta):
 	
 func get_damage():
 	lifes -= 1
+	direction = -1
 	get_node("/root/MainScene/CanvasLayer/HUD/Lives").text = "Lives: " + str(lifes)
+	$ShockTimer.wait_time = shock_time
+	$Particles2D.emitting = true
+	$ShockTimer.start()
 
 func _on_Area2D_body_entered(body):
 	print (body)
@@ -114,4 +120,11 @@ func _on_GravityTimer_timeout():
 
 func _on_TripTimer_timeout():
 	update_trip_level(-10)
+	pass # Replace with function body.
+
+
+func _on_ShockTimer_timeout():
+	direction = 1
+	$Particles2D.emitting = false
+	$ShockTimer.stop()
 	pass # Replace with function body.
