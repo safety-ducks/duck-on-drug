@@ -18,4 +18,6 @@ func _input(ev):
 	if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_ESCAPE):
 		visible = not visible
 		get_parent().get_tree().paused = visible
+	if ev.is_action_pressed("toggle_fullscreen"):
+    	OS.window_fullscreen = !OS.window_fullscreen
 		
