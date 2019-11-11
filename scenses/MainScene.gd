@@ -4,6 +4,8 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
+var game_started = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	$Player/AudioStreamPlayer2D.

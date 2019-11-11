@@ -3,7 +3,6 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_parent().get_tree().paused = true
@@ -18,4 +17,6 @@ func _input(ev):
 	if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_ESCAPE):
 		visible = not visible
 		get_parent().get_tree().paused = visible
+		if visible:
+			get_node("/root/MainScene/CanvasLayer/UI/Button").start_game()
 		
