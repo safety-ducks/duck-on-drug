@@ -17,7 +17,9 @@ func start_game():
 	get_node("/root/MainScene/CanvasLayer/UI").hide()
 	get_node("/root/MainScene/CanvasLayer/UI/Texture/Node2D/Anim").hide()
 	get_node("/root/MainScene/CanvasLayer/UI/Texture/Label").hide()
+	get_node("/root/MainScene/CanvasLayer/UI/Restart").show()
 	get_parent().get_tree().paused = false
+	
 
 	pass # Replace with function body.
 
