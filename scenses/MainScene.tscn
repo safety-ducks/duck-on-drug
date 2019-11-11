@@ -128,6 +128,7 @@ expand = true
 position = Vector2( 530.495, 448.313 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Texture"]
